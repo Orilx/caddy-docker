@@ -8,5 +8,5 @@ else
     echo "$DNS" | sed 's/"//g' | grep -Eo "[^,]+" | grep -Eo "$IPREX4" | sed "s/^/nameserver /g" >/etc/resolv.conf
 fi
 ls -shan /data
-sed 's/\r$//' /data/caddyfile.txt >/tmp/caddyfile
+sed 's/\r$//' /data/caddyfile >/tmp/caddyfile
 exec caddy run --config /tmp/caddyfile --adapter caddyfile
